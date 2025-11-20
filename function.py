@@ -83,6 +83,10 @@ def DGP(seed, n, rho, dim, setting, proportion):
 
   
 ### functions for OrdinalNN ###
+
+def CE(y_pred, y_label):
+    return -(y_label * torch.log(y_pred + 1e-5)).sum()/(y_label.shape[0] * y_label.shape[1])
+
 def sparse(dim):
     '''
     sparse layer coefficient
